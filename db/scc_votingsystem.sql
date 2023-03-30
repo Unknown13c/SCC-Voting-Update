@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2023 at 03:49 AM
+-- Generation Time: Mar 30, 2023 at 09:13 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -598,7 +598,11 @@ INSERT INTO `tbl_activitylogs` (`logs_id`, `username`, `action`, `login_time`) V
 (2449, 'admin', 'logout', '2023-03-29 16:36:07'),
 (2450, 'admin', 'login', '2023-03-29 16:37:25'),
 (2451, 'admin', 'login', '2023-03-29 16:43:22'),
-(2452, 'admin', 'login', '2023-03-30 08:42:28');
+(2452, 'admin', 'login', '2023-03-30 08:42:28'),
+(2453, 'admin', 'login', '2023-03-30 11:18:51'),
+(2454, 'admin', 'login', '2023-03-30 13:07:12'),
+(2455, 'admin', 'logout', '2023-03-30 13:10:08'),
+(2456, 'admin', 'login', '2023-03-30 13:12:30');
 
 -- --------------------------------------------------------
 
@@ -5187,9 +5191,7 @@ ALTER TABLE `voters`
 -- Indexes for table `votes`
 --
 ALTER TABLE `votes`
-  ADD PRIMARY KEY (`vote_id`),
-  ADD KEY `candidate_id` (`candidate_id`),
-  ADD KEY `voters_id` (`voters_id`);
+  ADD PRIMARY KEY (`vote_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -5205,7 +5207,7 @@ ALTER TABLE `school_profile`
 -- AUTO_INCREMENT for table `tbl_activitylogs`
 --
 ALTER TABLE `tbl_activitylogs`
-  MODIFY `logs_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2453;
+  MODIFY `logs_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2457;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`

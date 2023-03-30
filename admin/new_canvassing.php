@@ -103,8 +103,8 @@
 													$id = $fetch['candidate_id'];	
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
 													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'president'" );
-													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'president') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
-													$query4 = $conn->query("SELECT COUNT(*) + (SELECT COUNT(tbl_candidate.candidate_id)  as 'Percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'president') as Percentage2 FROM `votes` WHERE candidate_id = '$id' ");
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'president') *100.0,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'president')) *100.0,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'president')");
 													
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
@@ -128,7 +128,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 														
 														
@@ -159,10 +159,12 @@
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
 													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'vice president'" );
-													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'vice president') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'vice president') *100.0,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'vice president')) *100.0,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'vice president')");
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
 
 												
 												?>
@@ -180,7 +182,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 												
 												
@@ -211,9 +213,11 @@
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
 													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'secretary'" );
 													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'secretary') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'secretary')) *100,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'secretary')");
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
 											
 												?>
 												<tbody>
@@ -230,7 +234,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 												
 										</table>	
@@ -260,9 +264,11 @@
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
 													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'treasurer'" );
 													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'treasurer') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'treasurer')) *100,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'treasurer')");
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -279,7 +285,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 												
 												
@@ -310,9 +316,11 @@
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
 													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'auditor'" );
 													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'auditor') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'auditor')) *100,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'auditor')");
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -329,7 +337,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 												
 										</table>	
@@ -356,11 +364,13 @@
 												while($fetch = $query->fetch_array()){
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
-													$query2 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'vice president') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Mass Media Officer') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
 													$query3 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Mass Media Officer'" );
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'Mass Media Officer')) *100,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'Mass Media Officer')");
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
 										
 												?>		
 												<tbody>
@@ -377,7 +387,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch3 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 												
 												
@@ -408,9 +418,11 @@
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
 													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'peace officer'" );
 													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'peace officer') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'peace officer')) *100,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'peace officer')");
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -427,7 +439,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 												
 										</table>	
@@ -458,9 +470,11 @@
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
 													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'activity coordinator'" );
 													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'activity coordinator') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
-													$fetch1 = $query1->fetch_assoc();
+													
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'activity coordinator')) *100.0,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'activity coordinator')");$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -477,7 +491,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 												
 										</table>	
@@ -507,9 +521,11 @@
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
 													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 1st year'" );
 													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 1st year') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'Liaison 1st year')) *100.0,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'Liaison 1st year')");
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -526,7 +542,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 												
 										</table>	
@@ -556,9 +572,11 @@
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
 													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 2nd year'" );
 													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 2nd year') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'Liaison 2nd year')) *100.0,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'Liaison 2nd year')");
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -575,7 +593,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 												
 										</table>	
@@ -605,9 +623,11 @@
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
 													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 3rd year'" );
 													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 3rd year') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'Liaison 3rd year')) *100.0,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'Liaison 3rd year')");
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -624,7 +644,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 												
 										</table>	
@@ -654,9 +674,11 @@
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
 													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 4th year'" );
 													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 4th year') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query4 = $conn->query("SELECT ROUND (COUNT(votes.candidate_id) / (SELECT COUNT(*) FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'Liaison 4th year')) *100.0,2 )as total_percent FROM votes WHERE EXISTS (SELECT * FROM tbl_candidate WHERE tbl_candidate.candidate_id = votes.candidate_id AND tbl_candidate.position = 'Liaison 4th year')");
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -673,7 +695,7 @@
 													<td></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
 												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
 												</thead>
 												
 										</table>
