@@ -82,7 +82,7 @@
                                 labels: <?php echo json_encode($chartLabels);?>,
                                 datasets: [{
                                   label: "Votes",
-                                  backgroundColor: "rgba(2,117,216,1)",
+                                  backgroundColor: "rgb(255, 54, 54)",
                                   borderColor: "rgba(2,117,216,1)",
                                   data: [<?php echo implode(",",$chartData);?>],
                                 }],

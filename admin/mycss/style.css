@@ -251,7 +251,7 @@ nav ul li a {
   text-decoration: underline;
 }
 .grandMothers {
-  border: 5px solid green;
+  border: 5px solid rgb(7, 133, 7);
 }
 .grandMothers img {
   background-size: cover;

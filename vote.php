@@ -137,7 +137,7 @@
 						<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>
@@ -209,7 +209,7 @@
 					<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>
@@ -279,7 +279,7 @@
 					<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>
@@ -348,7 +348,7 @@
 					<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>"  style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>
@@ -416,7 +416,7 @@
 					<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>"  style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>
@@ -482,7 +482,7 @@
 					<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>"  style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>
@@ -550,7 +550,7 @@
 					<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>"  style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>
@@ -618,7 +618,7 @@
 					<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>"  style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>
@@ -686,7 +686,7 @@
 					<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>
@@ -754,7 +754,7 @@
 					<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>"  style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>
@@ -822,7 +822,7 @@
 					<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>"  style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>
@@ -892,7 +892,7 @@
 					<div id = "card-container1">
                 		<div class="card-container">
 								<!-- <span class="pro">PRO</span> -->
-								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style="width: 10pc; border-radius:6px; " alt="user" />
+								<img class="circle" src = "admin/<?php echo $fetch['img']?>" style = "width:10pc; height:10pc; cursor: pointer; border-radius:6px; " alt="user" />
 								<h3 class="h3">Name: <?php echo $fetch['firstname']." ".$fetch['lastname'] ?></h3>
 								<h6 class="h6">Gender: <?php echo $fetch['gender'] ?></h6>
 								<h6 class="h6">Deparment: <?php echo $fetch['department'] ?></h6>

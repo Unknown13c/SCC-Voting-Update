@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2023 at 04:04 AM
+-- Generation Time: Mar 30, 2023 at 03:49 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -38,7 +38,7 @@ CREATE TABLE `school_profile` (
 --
 
 INSERT INTO `school_profile` (`ID`, `Title`, `Description`) VALUES
-(1, 'Profile', 'In 2004, the school was renamed into a college and opened its elementary and high school departments. Three years later, the college department opened with course offerings in Teacher Education, Business Administration, Information Technology, and Information Systems. St. Cecilia\'s College is currently a Lasallian School Supervision Office (LASSO) Consultancy School.\r\n\r\nAt present, the St. Cecilia\'s College offers complete programs from the preschool to the college level, including Special Education (SPED). It has a Senior High School (SHS) department with available strands from the Academic and the Technical-Vocational-Livelihood (TVL) tracks. Its college department, on the other hand, provides undergraduate programs in Hospitality and Tourism Management, Business Administration, Teacher Education, Criminology, and Information Technology. Also available is an associate program in Computer Technology.');
+(1, 'Profile', 'In 2004, the school was renamed into a college and opened its elementary and high school departments. Three years later, the college department opened with course offerings in Teacher Education, Business Administration, Information Technology, and Information Systems. St. Cecilia\'s College is currently a Lasallian School Supervision Office (LASSO) Consultancy School.\n\nAt present, the St. Cecilia\'s College offers complete programs from the preschool to the college level, including Special Education (SPED). It has a Senior High School (SHS) department with available strands from the Academic and the Technical-Vocational-Livelihood (TVL) tracks. Its college department, on the other hand, provides undergraduate programs in Hospitality and Tourism Management, Business Administration, Teacher Education, Criminology, and Information Technology. Also available is an associate program in Computer Technology.');
 
 -- --------------------------------------------------------
 
@@ -487,7 +487,118 @@ INSERT INTO `tbl_activitylogs` (`logs_id`, `username`, `action`, `login_time`) V
 (2338, 'admin', 'login', '2023-03-10 00:49:45'),
 (2339, 'admin', 'logout', '2023-03-10 00:50:14'),
 (2340, 'admin', 'login', '2023-03-12 20:01:25'),
-(2341, 'admin', 'logout', '2023-03-12 20:02:16');
+(2341, 'admin', 'logout', '2023-03-12 20:02:16'),
+(2342, 'admin', 'login', '2023-03-15 23:00:39'),
+(2343, 'admin', 'logout', '2023-03-15 23:01:58'),
+(2344, 'admin', 'login', '2023-03-16 00:01:15'),
+(2345, 'admin', 'logout', '2023-03-16 01:30:49'),
+(2346, 'admin', 'login', '2023-03-16 18:23:59'),
+(2347, 'admin', 'logout', '2023-03-16 18:24:39'),
+(2348, 'admin', 'login', '2023-03-16 21:45:55'),
+(2349, 'admin', 'logout', '2023-03-16 21:52:11'),
+(2350, 'admin', 'login', '2023-03-16 21:52:21'),
+(2351, 'admin', 'login', '2023-03-16 22:01:52'),
+(2352, 'admin', 'logout', '2023-03-16 22:08:45'),
+(2353, 'admin', 'login', '2023-03-16 22:21:16'),
+(2354, 'admin', 'login', '2023-03-16 22:53:42'),
+(2355, 'admin', 'login', '2023-03-16 22:58:31'),
+(2356, 'admin', 'login', '2023-03-16 23:03:24'),
+(2357, 'admin', 'login', '2023-03-16 23:04:23'),
+(2358, 'admin', 'login', '2023-03-17 00:44:04'),
+(2359, 'admin', 'logout', '2023-03-17 00:46:35'),
+(2360, 'admin', 'login', '2023-03-17 00:58:58'),
+(2361, 'admin', 'login', '2023-03-19 18:10:03'),
+(2362, 'admin ', 'login', '2023-03-19 18:11:22'),
+(2363, 'admin', 'login', '2023-03-19 18:26:54'),
+(2364, 'admin', 'login', '2023-03-19 18:36:03'),
+(2365, 'admin', 'login', '2023-03-19 18:59:21'),
+(2366, 'admin', 'login', '2023-03-19 19:18:50'),
+(2367, 'admin', 'login', '2023-03-19 19:28:00'),
+(2368, 'admin', 'login', '2023-03-19 19:38:57'),
+(2369, 'admin', 'login', '2023-03-19 21:54:06'),
+(2370, 'admin', 'login', '2023-03-19 22:16:04'),
+(2371, 'admin', 'login', '2023-03-19 22:39:59'),
+(2372, 'admin', 'logout', '2023-03-19 23:05:28'),
+(2373, 'admin', 'login', '2023-03-19 23:05:36'),
+(2374, 'admin', 'logout', '2023-03-19 23:25:56'),
+(2375, 'admin', 'login', '2023-03-19 23:26:10'),
+(2376, 'admin', 'logout', '2023-03-20 00:27:04'),
+(2377, 'admin', 'login', '2023-03-20 00:27:08'),
+(2378, '', 'New partylist added', '2023-03-20 01:13:20'),
+(2379, 'admin', 'logout', '2023-03-20 01:14:02'),
+(2380, 'admin', 'login', '2023-03-20 01:21:55'),
+(2381, 'admin', 'Approved', '2023-03-20 01:22:01'),
+(2382, 'admin', 'logout', '2023-03-20 01:26:06'),
+(2383, 'admin', 'login', '2023-03-20 01:26:15'),
+(2384, 'admin', 'logout', '2023-03-20 01:26:16'),
+(2385, '', 'logout', '2023-03-20 01:26:16'),
+(2386, 'admin', 'login', '2023-03-20 01:26:34'),
+(2387, 'admin', 'logout', '2023-03-20 01:27:05'),
+(2388, 'admin', 'login', '2023-03-20 01:27:15'),
+(2389, 'admin', 'logout', '2023-03-20 01:48:15'),
+(2390, 'admin', 'login', '2023-03-20 19:53:53'),
+(2391, 'admin', 'logout', '2023-03-20 22:59:13'),
+(2392, 'admin', 'login', '2023-03-20 22:59:57'),
+(2393, 'admin', 'logout', '2023-03-20 23:05:07'),
+(2394, 'admin', 'login', '2023-03-20 23:05:18'),
+(2395, 'admin', 'logout', '2023-03-20 23:49:30'),
+(2396, 'admin', 'login', '2023-03-20 23:49:35'),
+(2397, 'admin', 'Deleted partylist', '2023-03-21 00:00:44'),
+(2398, 'admin', 'logout', '2023-03-21 00:12:27'),
+(2399, 'admin', 'login', '2023-03-21 00:12:30'),
+(2400, 'admin', 'logout', '2023-03-21 00:32:54'),
+(2401, 'admin', 'login', '2023-03-21 00:33:52'),
+(2402, 'admin', 'logout', '2023-03-21 00:51:54'),
+(2403, 'admin', 'login', '2023-03-21 00:51:58'),
+(2404, 'admin', 'logout', '2023-03-21 01:37:56'),
+(2405, 'admin', 'login', '2023-03-21 01:38:18'),
+(2406, 'admin', 'logout', '2023-03-21 01:56:25'),
+(2407, 'admin', 'login', '2023-03-21 01:56:36'),
+(2408, 'admin', 'logout', '2023-03-21 01:57:05'),
+(2409, 'admin', 'login', '2023-03-21 18:50:49'),
+(2410, 'admin', 'logout', '2023-03-21 18:51:38'),
+(2411, 'admin', 'login', '2023-03-21 18:51:42'),
+(2412, 'admin', 'logout', '2023-03-21 18:52:22'),
+(2413, 'admin', 'login', '2023-03-21 19:27:26'),
+(2414, 'admin', 'login', '2023-03-22 00:42:46'),
+(2415, 'admin', 'logout', '2023-03-22 00:43:23'),
+(2416, 'admin', 'login', '2023-03-22 00:45:01'),
+(2417, 'admin', 'login', '2023-03-23 19:30:19'),
+(2418, 'admin', 'logout', '2023-03-23 21:12:01'),
+(2419, 'admin', 'login', '2023-03-23 21:20:40'),
+(2420, 'admin', 'login', '2023-03-26 17:44:41'),
+(2421, 'admin', 'logout', '2023-03-26 18:06:33'),
+(2422, 'admin', 'login', '2023-03-26 18:06:48'),
+(2423, 'admin', 'logout', '2023-03-27 11:24:27'),
+(2424, 'admin', 'login', '2023-03-27 11:24:30'),
+(2425, 'admin', 'login', '2023-03-27 13:13:49'),
+(2426, 'admin', 'logout', '2023-03-27 13:17:03'),
+(2427, 'admin', 'login', '2023-03-27 13:17:26'),
+(2428, 'admin', 'logout', '2023-03-27 14:26:35'),
+(2429, 'admin', 'login', '2023-03-27 14:26:38'),
+(2430, 'admin', 'logout', '2023-03-27 15:57:12'),
+(2431, 'admin', 'login', '2023-03-27 15:58:12'),
+(2432, 'admin', 'login', '2023-03-29 08:57:15'),
+(2433, 'admin', 'logout', '2023-03-29 09:21:34'),
+(2434, 'admin', 'login', '2023-03-29 09:25:08'),
+(2435, 'admin', 'logout', '2023-03-29 09:53:33'),
+(2436, 'admin', 'login', '2023-03-29 09:53:37'),
+(2437, 'admin', 'login', '2023-03-29 11:56:36'),
+(2438, 'admin', 'login', '2023-03-29 13:10:35'),
+(2439, 'admin', 'logout', '2023-03-29 14:37:00'),
+(2440, 'admin', 'login', '2023-03-29 14:37:09'),
+(2441, 'admin', 'logout', '2023-03-29 16:05:43'),
+(2442, 'admin', 'login', '2023-03-29 16:06:38'),
+(2443, 'admin', 'logout', '2023-03-29 16:15:30'),
+(2444, 'admin', 'login', '2023-03-29 16:15:41'),
+(2445, 'admin', 'logout', '2023-03-29 16:20:29'),
+(2446, 'admin', 'login', '2023-03-29 16:21:24'),
+(2447, 'admin', 'logout', '2023-03-29 16:31:57'),
+(2448, 'admin', 'login', '2023-03-29 16:34:17'),
+(2449, 'admin', 'logout', '2023-03-29 16:36:07'),
+(2450, 'admin', 'login', '2023-03-29 16:37:25'),
+(2451, 'admin', 'login', '2023-03-29 16:43:22'),
+(2452, 'admin', 'login', '2023-03-30 08:42:28');
 
 -- --------------------------------------------------------
 
@@ -578,8 +689,7 @@ INSERT INTO `tbl_candidate` (`candidate_id`, `platform`, `image_grade`, `img`, `
 (120, '1. Group study\r\n2. Programming tournament\r\n3. Online games tournament\r\n4. To remain cleanliness', '', '../admin/uploads/299691148_624428962624030_4224927536833842272_n.jpg', 'Mass Media Officer', 1018, 'Shernan', 'Misa', 'shernan.misa66@gmail.com', 'BSIT', '1st Year', 'Male', 'approved'),
 (121, '1.ONLNE SYMPOSIUM\r\n2.SKILL CAPACITY\r\n3.CLEANLINESS\r\n4.ANNOUNCEMENT', '', 'uploads/barro.png', 'Mass Media Officer', 1020, 'Princess', 'Barro', 'barroprincess287@gmail.com', 'BSIT', '1st Year', 'Female', 'approved'),
 (122, 'Platform 1 - Online Symposium\r\nPlatform 2 - Skill Capacity\r\nPlatform 3 - Cleanliness\r\nPlatform 4 - Announcement', '', '../admin/uploads/Baby boy.png', 'Peace Officer', 1020, 'Baby Boy', 'Padriga', 'Beboypadriga11@gmail.com', 'BSIT', '1st Year', 'Male', 'approved'),
-(123, 'Dasig platform', '', '../admin/uploads/307961320_1092244105017847_970197272306763559_n.jpg', 'Peace Officer', 1018, 'Brylle Justin', 'Herminio', 'mikaelee.john@gmail.com', 'BSIT', '1st Year', 'Male', 'approved'),
-(124, 'sample', '', '../admin/uploads/loloko.png', 'President', 1021, 'Reymart', 'Racoma', 'Mr.MENISKI@gmail.com', 'BSBA', '4th Year', 'Male', 'approved');
+(123, 'Dasig platform', '', '../admin/uploads/307961320_1092244105017847_970197272306763559_n.jpg', 'Peace Officer', 1018, 'Brylle Justin', 'Herminio', 'mikaelee.john@gmail.com', 'BSIT', '1st Year', 'Male', 'approved');
 
 -- --------------------------------------------------------
 
@@ -621,26 +731,6 @@ INSERT INTO `tbl_partylist` (`partylist_id`, `party`, `year`, `date`) VALUES
 (1018, 'Dasig Partylist', '2022-2023', '2022-09-20'),
 (1019, 'METS Partylist', '2022-2023', '2022-09-20'),
 (1020, 'LITE Partylist', '2022-2023', '2022-09-20');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vm`
---
-
-CREATE TABLE `vm` (
-  `ID` int(11) NOT NULL,
-  `School` varchar(255) NOT NULL,
-  `Vision` text NOT NULL,
-  `Mission` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `vm`
---
-
-INSERT INTO `vm` (`ID`, `School`, `Vision`, `Mission`) VALUES
-(1, 'SCC', 'SCC is a non-stock, non-profit educational institution that envisions itself to be a Center of excellence in Academics, Technology, and the Arts. It aspires to produce professionals and leaders who are globally competitive, imbued with Christian values, integrity, patriotism and stewardship, through quality human education.', 'SCC, following the ideals of St. Cecilia, commits itself to:\r\n\r\n1.   Cutivate and inculcate Christian values to its pupils/students to become men and women of faith and integrity;\r\n2.   Provide the students with knowledge and skills in academic, technology and the arts through the use of modern teaching methods and techniques;\r\n3.   Foster the development of love for country and service to fellowmen;\r\n4.   Upgrade the teachers\' skills and competencies in classroom instruction and management through Faculty Development Program;\r\n5.   Develop the critical thinking skills of students;\r\n6.   Provide opportunities to students;\r\n7.   Inculcate in the students the love, care and preservation of Mother nature.');
 
 -- --------------------------------------------------------
 
@@ -5088,12 +5178,6 @@ ALTER TABLE `tbl_partylist`
   ADD PRIMARY KEY (`partylist_id`);
 
 --
--- Indexes for table `vm`
---
-ALTER TABLE `vm`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indexes for table `voters`
 --
 ALTER TABLE `voters`
@@ -5121,7 +5205,7 @@ ALTER TABLE `school_profile`
 -- AUTO_INCREMENT for table `tbl_activitylogs`
 --
 ALTER TABLE `tbl_activitylogs`
-  MODIFY `logs_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2342;
+  MODIFY `logs_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2453;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
@@ -5133,7 +5217,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_candidate`
 --
 ALTER TABLE `tbl_candidate`
-  MODIFY `candidate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `candidate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT for table `tbl_messages`
@@ -5145,13 +5229,7 @@ ALTER TABLE `tbl_messages`
 -- AUTO_INCREMENT for table `tbl_partylist`
 --
 ALTER TABLE `tbl_partylist`
-  MODIFY `partylist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1022;
-
---
--- AUTO_INCREMENT for table `vm`
---
-ALTER TABLE `vm`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `partylist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1023;
 
 --
 -- AUTO_INCREMENT for table `voters`

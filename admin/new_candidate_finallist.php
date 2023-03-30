@@ -15,7 +15,7 @@
 								<img src="logo/scclogo.png" alt="left logo">
 							</div>
 							<div class="center-header">
-								<h4 style="font-weight:bold;">St. Cecilia's College-Cebu, Inc. <br>
+								<h4 style="font-weight:bold;font-size: 15px;">St. Cecilia's College-Cebu, Inc. <br>
 								A La Salle Supervised School <br> Ward II, Poblacion, Minglanilla, Cebu</h4> 
 							</div>
 							<div class="final-logo1">
@@ -29,7 +29,7 @@
 			            		require '../dbconnector/dbcon.php';
 			            		$years = $conn->query("SELECT year FROM `tbl_partylist`")->fetch_array();
 			            	?>
-							<h4>THE NEWLY ELECTED STUDENT COUNCIL OFFICER (SCO)<br><br> COLLEGE DEPARTMENT <br><br>
+							<h4 style="font-weight:bold;font-size: 14px;">THE NEWLY ELECTED STUDENT COUNCIL OFFICER (SCO)<br> COLLEGE DEPARTMENT <br>
 								A.Y. <?php echo $years['year']; ?>
 							</h4>
 						</div>
@@ -67,8 +67,7 @@
 
                      $C12 = $conn->query("SELECT *, (SELECT COUNT(*) FROM votes v WHERE v.candidate_id = c.candidate_id) as total FROM tbl_candidate c WHERE position = 'Liaison 4th year' and status = 'approved'  ORDER BY total DESC ")->fetch_array();
 							?>
-
-
+							
 						<div class="content-position">
 							<ul>
 								<li><b>President:</b> <?php echo $C1['firstname']." ".$C1['lastname']." - ".$C1['department']." - ".$C1['year_level'];?></li>
@@ -108,11 +107,11 @@
 						</div>
 							<div class="content-admin">
 								<h4><b>Prepared By:</b> <span>Ms. Elma R. Quiero</span></h4>        
-								<h4 stlye="text-size:5px;"> SAO/Prefect of Discipline</h4>
+								<h4 stlye="text-size:5px;"><em>SAO/Prefect of Discipline</em></h4>
 								<br>
 								<br>
 								<h4><b>Noted By:</b> <span>Mr. Alfredo S. Moreno</span></h4>
-								<h4 stlye="text-size:5px;">Dean of College</h4>	
+								<h4 stlye="text-size:5px;"><em>Dean of College</em></h4>	
 							</div>
 							<button type="button" onclick="window.print();" style="margin-left: 2em;" id ="print" class = "pull-left btn btn-info"><i class = "fa fa-print"></i> Print
 							</button>

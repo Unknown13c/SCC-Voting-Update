@@ -70,10 +70,14 @@
 
 						</form>	
                         <div class="panel-body">							                            		
-										<!-- President Area -->		
+										<!-- President Area -->	
+										<?php 
+										$count1 =  $conn->query("SELECT COUNT(*) as total FROM `voters` WHERE `status` = 'Voted'")->fetch_array();
+										
+										?>		
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>PRESIDENT</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;" class = "alert alert"><b>PRESIDENT</b></td>
 												</thead>
 											</table>
 										<table class="table table-striped table-bordered table-hover ">
@@ -85,43 +89,57 @@
 													<td style = "width:600px;"class = "alert alert"><b>CANDIDATE NAME</b></td>
 													<td style = "width:90px; "class = "alert alert"><b>DEPARTMENT</b></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>TOTAL VOTES</b></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>TOTAL PRESIDENTS VOTES</b></td>
+													<!-- <td style = "width:90px; text-align:center"class = "alert alert" ><b>TOTAL PRESIDENTS VOTES</b></td> -->
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>Percentage (%)</b></td>
-												
+
 												</thead>
 												
+												
+
 												<?php
 											require '../dbconnector/dbcon.php';
 											$query = $conn->query("SELECT * FROM tbl_candidate WHERE position = 'president' and status = 'approved'");
 											while($fetch = $query->fetch_array()){	
-													$id = $fetch['candidate_id'];										
-													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'" );
-													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'president'" );
-													$query3 = $conn->query("SELECT candidate_id, COUNT(*) * 100.0 /  (SELECT COUNT(*) FROM votes) AS Percent FROM votes GROUP BY candidate_id ORDER BY candidate_id;");													// $query3 = $conn->query("SELECT candidate_id, total CAST(candidate_id * 100) / total AS 'Percentage2') AS 'Percentage2' FROM votes " );
-													// $query3 = $conn->query("SELECT candidate_id, (SELECT COUNT(*) * 100 AS 'Percentage2') AS 'Percentage2' FROM votes");
+													$id = $fetch['candidate_id'];	
+													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'president'" );
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'president') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query4 = $conn->query("SELECT COUNT(*) + (SELECT COUNT(tbl_candidate.candidate_id)  as 'Percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'president') as Percentage2 FROM `votes` WHERE candidate_id = '$id' ");
+													
 													$fetch1 = $query1->fetch_assoc();
 													$fetch2 = $query2->fetch_assoc();
 													$fetch3 = $query3->fetch_assoc();
+													$fetch4 = $query4->fetch_assoc();
+													
 
-										
+	
 												?>
 												<tbody>
 													<td><img id="img" src = "<?php echo $fetch ['img'];?>" style = "width:40px; height:40px; cursor: pointer; " > 
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
-													<td style = "width:20px; text-align:center"><?php echo $fetch2 ['percentage1'];?></td>
-													<td style = "width:20px; text-align:center"><?php echo $fetch3 ['Percent'].'%';?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch3 ['Percentage1'].'%';?></td>
 												<?php }?>
 												</tbody>
+
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 														
 														
 										</table>
+											
+									
 
 										<!-- Vice President Area	 -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>VICE PRESIDENT</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; "class = "alert alert"><b>VICE PRESIDENT</b></td>
 												</thead>
 											</table>
 
@@ -134,14 +152,18 @@
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>TOTAL VOTES</b></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>Percentage (%)</b></td>
 												
-												</thead>
 												<?php
 												require '../dbconnector/dbcon.php';
 												$query = $conn->query("SELECT * FROM tbl_candidate WHERE position = 'vice president' and status = 'approved'");
 												while($fetch = $query->fetch_array()){
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'vice president'" );
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'vice president') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
 													$fetch1 = $query1->fetch_assoc();
+													$fetch2 = $query2->fetch_assoc();
+													$fetch3 = $query3->fetch_assoc();
+
 												
 												?>
 												<tbody>
@@ -150,8 +172,16 @@
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch3 ['Percentage1'].'%';?></td>
 												<?php }?>
 												</tbody>
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 												
 												
 										</table>	
@@ -159,7 +189,7 @@
 										<!-- Secretary Area -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>SECRETARY</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; "class = "alert alert"><b>SECRETARY</b></td>
 												</thead>
 											</table>
 
@@ -179,7 +209,11 @@
 												while($fetch = $query->fetch_array()){					
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'secretary'" );
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'secretary') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
 													$fetch1 = $query1->fetch_assoc();
+													$fetch2 = $query2->fetch_assoc();
+													$fetch3 = $query3->fetch_assoc();
 											
 												?>
 												<tbody>
@@ -188,16 +222,23 @@
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch3 ['Percentage1'].'%';?></td>
 												<?php }?>
 												</tbody>
-												
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 												
 										</table>	
 										
 										<!-- Treasurer Area -->			
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>TREASURER</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>TREASURER</b></td>
 												</thead>
 											</table>
 
@@ -217,7 +258,11 @@
 												while($fetch = $query->fetch_array()){
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'treasurer'" );
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'treasurer') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
 													$fetch1 = $query1->fetch_assoc();
+													$fetch2 = $query2->fetch_assoc();
+													$fetch3 = $query3->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -226,8 +271,16 @@
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch3 ['Percentage1'].'%';?></td>
 												<?php }?>
 												</tbody>
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 												
 												
 										</table>
@@ -236,7 +289,7 @@
 										<!-- Auditor Area -->													
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>AUDITOR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>AUDITOR</b></td>
 												</thead>
 											</table>
 										<table class="table table-striped table-bordered table-hover ">
@@ -255,7 +308,11 @@
 												while($fetch = $query->fetch_array()){
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'auditor'" );
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'auditor') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
 													$fetch1 = $query1->fetch_assoc();
+													$fetch2 = $query2->fetch_assoc();
+													$fetch3 = $query3->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -264,15 +321,23 @@
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch3['Percentage1'].'%';?></td>
 												<?php }?>
 												</tbody>
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 												
 										</table>	
 										
 										<!-- Mass Media Officer Area	 -->			
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>MASS MEDIA OFFICER</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>MASS MEDIA OFFICER</b></td>
 												</thead>
 											</table>
 										<table class="table table-striped table-bordered table-hover ">
@@ -291,7 +356,11 @@
 												while($fetch = $query->fetch_array()){
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'vice president') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
+													$query3 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Mass Media Officer'" );
 													$fetch1 = $query1->fetch_assoc();
+													$fetch2 = $query2->fetch_assoc();
+													$fetch3 = $query3->fetch_assoc();
 										
 												?>		
 												<tbody>
@@ -300,8 +369,16 @@
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch2 ['Percentage1'],'%';?></td>
 												<?php }?>
 												</tbody>
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch3 ['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 												
 												
 										</table>	
@@ -310,7 +387,7 @@
 										<!-- Peace Officer Area -->				
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>PEACE OFFICER</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>PEACE OFFICER</b></td>
 												</thead>
 											</table>
 										<table class="table table-striped table-bordered table-hover ">
@@ -329,7 +406,11 @@
 												while($fetch = $query->fetch_array()){
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'peace officer'" );
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'peace officer') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
 													$fetch1 = $query1->fetch_assoc();
+													$fetch2 = $query2->fetch_assoc();
+													$fetch3 = $query3->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -338,16 +419,23 @@
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch3 ['Percentage1'].'%';?></td>
 												<?php }?>
 												</tbody>
-												
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 												
 										</table>	
 										
 										<!-- Activity Coordinator Area -->				
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>ACTIVITY COORDINATOR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>ACTIVITY COORDINATOR</b></td>
 												</thead>
 											</table>
 
@@ -368,7 +456,11 @@
 												{
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'activity coordinator'" );
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'activity coordinator') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
 													$fetch1 = $query1->fetch_assoc();
+													$fetch2 = $query2->fetch_assoc();
+													$fetch3 = $query3->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -377,15 +469,22 @@
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch3 ['Percentage1'].'%';?></td>
 												<?php }?>
 												</tbody>
-												
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 												
 										</table>	
 										<!-- 1st year liaison -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>LIAISON 1ST YEAR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>LIAISON 1ST YEAR</b></td>
 												</thead>
 											</table>
 
@@ -406,7 +505,11 @@
 												{
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 1st year'" );
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 1st year') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
 													$fetch1 = $query1->fetch_assoc();
+													$fetch2 = $query2->fetch_assoc();
+													$fetch3 = $query3->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -415,15 +518,22 @@
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch3 ['Percentage1'];?></td>
 												<?php }?>
 												</tbody>
-												
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 												
 										</table>	
 										<!-- 2nd year liaison -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>LIAISON 2ND YEAR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>LIAISON 2ND YEAR</b></td>
 												</thead>
 											</table>
 
@@ -444,7 +554,11 @@
 												{
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 2nd year'" );
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 2nd year') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
 													$fetch1 = $query1->fetch_assoc();
+													$fetch2 = $query2->fetch_assoc();
+													$fetch3 = $query3->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -453,15 +567,22 @@
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch3 ['Percentage1'];?></td>
 												<?php }?>
 												</tbody>
-												
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 												
 										</table>	
 										<!-- 3rd year liaison -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>LIAISON 3RD YEAR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>LIAISON 3RD YEAR</b></td>
 												</thead>
 											</table>
 
@@ -482,7 +603,11 @@
 												{
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 3rd year'" );
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 3rd year') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
 													$fetch1 = $query1->fetch_assoc();
+													$fetch2 = $query2->fetch_assoc();
+													$fetch3 = $query3->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -491,16 +616,23 @@
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch3 ['Percentage1'];?></td>
 												<?php }?>
 												</tbody>
-												
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 												
 										</table>	
 
 										<!-- 4th year liaison -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center"class = "alert alert"><b>LIAISON 4TH YEAR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>LIAISON 4TH YEAR</b></td>
 												</thead>
 											</table>
 
@@ -511,7 +643,7 @@
 													<td style = "width:600px;"class = "alert alert"><b>CANDIDATE NAME</b></td>
 													<td style = "width:90px; "class = "alert alert"><b>DEPARTMENT</b></td>
 													<td style = "width:90px; text-align:center"class = "alert alert" ><b>TOTAL VOTES</b></td>
-												
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>Percentage (%)</b></td>
 												</thead>
 												<?php
 												require '../dbconnector/dbcon.php';
@@ -520,7 +652,11 @@
 												{
 													$id = $fetch['candidate_id'];
 													$query1 = $conn->query("SELECT COUNT(*) as total FROM `votes` WHERE candidate_id = '$id'");
+													$query2 = $conn->query("SELECT COUNT(tbl_candidate.candidate_id)  as 'percent' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 4th year'" );
+													$query3 = $conn->query("SELECT ROUND(COUNT(*) / (SELECT COUNT(tbl_candidate.candidate_id)  as 'percentage1' FROM votes INNER JOIN tbl_candidate ON votes.candidate_id = tbl_candidate.candidate_id WHERE tbl_candidate.position = 'Liaison 4th year') *100,2)as Percentage1 FROM `votes` WHERE candidate_id = '$id'");
 													$fetch1 = $query1->fetch_assoc();
+													$fetch2 = $query2->fetch_assoc();
+													$fetch3 = $query3->fetch_assoc();
 										
 												?>
 												<tbody>
@@ -529,9 +665,16 @@
 													<td><?php echo $fetch ['firstname']. " ".$fetch ['lastname']. " ";?></td>
 													<td><?php echo $fetch ['department'];?></td>
 													<td style = "width:20px; text-align:center"><?php echo $fetch1 ['total'];?></td>
+													<td style = "width:20px; text-align:center"><?php echo $fetch3 ['Percentage1'];?></td>
 												<?php }?>
 												</tbody>
-												
+												<thead>
+													<td></td>
+													<td></td>
+													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['Percentage2'].'%';?></td>
+												</thead>
 												
 										</table>
 
