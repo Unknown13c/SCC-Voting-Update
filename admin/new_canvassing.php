@@ -77,7 +77,7 @@
 										?>		
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;" class = "alert alert"><b>PRESIDENT</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px;" class = "alert alert"><b>PRESIDENT</b></td>
 												</thead>
 											</table>
 										<table class="table table-striped table-bordered table-hover ">
@@ -126,9 +126,9 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%; font-weight:bold;"></b><?php echo $fetch2 ['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%; font-weight:bold;"></b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 														
 														
@@ -139,7 +139,7 @@
 										<!-- Vice President Area	 -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; "class = "alert alert"><b>VICE PRESIDENT</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px; "class = "alert alert"><b>VICE PRESIDENT</b></td>
 												</thead>
 											</table>
 
@@ -180,9 +180,9 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch2 ['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 												
 												
@@ -191,7 +191,7 @@
 										<!-- Secretary Area -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; "class = "alert alert"><b>SECRETARY</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px;"class = "alert alert"><b>SECRETARY</b></td>
 												</thead>
 											</table>
 
@@ -232,9 +232,9 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch2 ['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 												
 										</table>	
@@ -242,7 +242,7 @@
 										<!-- Treasurer Area -->			
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>TREASURER</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px;"class = "alert alert"><b>TREASURER</b></td>
 												</thead>
 											</table>
 
@@ -283,9 +283,9 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch2 ['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 												
 												
@@ -295,7 +295,7 @@
 										<!-- Auditor Area -->													
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>AUDITOR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px;"class = "alert alert"><b>AUDITOR</b></td>
 												</thead>
 											</table>
 										<table class="table table-striped table-bordered table-hover ">
@@ -335,9 +335,9 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch2['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 												
 										</table>	
@@ -345,7 +345,7 @@
 										<!-- Mass Media Officer Area	 -->			
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>MASS MEDIA OFFICER</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px;"class = "alert alert"><b>MASS MEDIA OFFICER</b></td>
 												</thead>
 											</table>
 										<table class="table table-striped table-bordered table-hover ">
@@ -385,9 +385,9 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch3 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch3 ['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 												
 												
@@ -397,7 +397,7 @@
 										<!-- Peace Officer Area -->				
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>PEACE OFFICER</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px;"class = "alert alert"><b>PEACE OFFICER</b></td>
 												</thead>
 											</table>
 										<table class="table table-striped table-bordered table-hover ">
@@ -437,9 +437,9 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch2 ['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 												
 										</table>	
@@ -447,7 +447,7 @@
 										<!-- Activity Coordinator Area -->				
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>ACTIVITY COORDINATOR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px;"class = "alert alert"><b>ACTIVITY COORDINATOR</b></td>
 												</thead>
 											</table>
 
@@ -489,16 +489,16 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch2 ['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 												
 										</table>	
 										<!-- 1st year liaison -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>LIAISON 1ST YEAR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px;"class = "alert alert"><b>LIAISON 1ST YEAR</b></td>
 												</thead>
 											</table>
 
@@ -540,16 +540,16 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch2 ['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 												
 										</table>	
 										<!-- 2nd year liaison -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>LIAISON 2ND YEAR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px;"class = "alert alert"><b>LIAISON 2ND YEAR</b></td>
 												</thead>
 											</table>
 
@@ -591,16 +591,16 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch2 ['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 												
 										</table>	
 										<!-- 3rd year liaison -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>LIAISON 3RD YEAR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px;"class = "alert alert"><b>LIAISON 3RD YEAR</b></td>
 												</thead>
 											</table>
 
@@ -642,9 +642,9 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch2 ['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 												
 										</table>	
@@ -652,7 +652,7 @@
 										<!-- 4th year liaison -->
 											<table class="table table-striped table-bordered table-hover ">
 												<thead>
-												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White;"class = "alert alert"><b>LIAISON 4TH YEAR</b></td>
+												<td style = "width:100%; text-align:center; background-color:#FF1B0AFF; color:White; letter-spacing:2px;"class = "alert alert"><b>LIAISON 4TH YEAR</b></td>
 												</thead>
 											</table>
 
@@ -693,9 +693,9 @@
 												<thead>
 													<td></td>
 													<td></td>
-													<td style = "width:90px; text-align:center"class = "alert alert" ><b>OVER ALL TOTAL</b></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch2 ['percent'];?></td>
-												    <td style = "width:20px; text-align:center; padding:1.5%;"><?php echo $fetch4 ['total_percent'].'%';?></td>
+													<td style = "width:150px; padding:1.5%; text-align:center;"class = "alert alert"><b>OVER ALL TOTAL</b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch2 ['percent'];?></b></td>
+												    <td style = "width:20px; text-align:center; padding:1.5%;"><b><?php echo $fetch4 ['total_percent'].'%';?></b></td>
 												</thead>
 												
 										</table>

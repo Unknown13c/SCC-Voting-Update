@@ -38,7 +38,8 @@
             <li><a href="new_canvassing.php?page=canvassingReports"><i class="fa fa-download fa-fw"></i>Election Reports</a></li>
             <li><a href="user.php?page=usersAccount"><i class="fa fa-user fa-fw"></i>Account</a></li>
             <li><a href="archives_candidate.php?page=archives"><i class="fa fa-user fa-archive"></i>Archives</a></li>
-            <li><a href="Candidates_realtime.php?page=Realtime-Vote"><i class="fa fa-user fa-fw"></i>Realtime Vote</a></li>
+            <li><a href="Candidates_realtime.php?page=Realtime-Vote"><i class="fa fa-bar-chart-o" aria-hidden="true"></i>Realtime Vote</a></li>
+            <li><a href="Candidate_pres.php?page=Registered"><i class="fa fa-users fa-fw"></i>Candidates</a></li>
             <li><a href="login_times.php?page=logs"><i class="fa fa-history fa-fw"></i>Activity logs</a></li>
             <li><a href="backup_index.php?page=backupDatabase"><i class="fa fa-hdd-o fas-fw"></i>Back-up</a></li>          
             <li><a href="" data-toggle="modal" data-target="#exampleModalCenter"> <i class = "fa fa-sign-out" ></i>Logout</a></li> 

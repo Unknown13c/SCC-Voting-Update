@@ -22,6 +22,8 @@ include 'session.php';
     <link href="mycss/sb-admin-2.css" rel="stylesheet">
     <link href="mycss/print.css" rel="stylesheet" media="print">
     <link href="mycss/Charts.css" rel="stylesheet">
+    <!-- <link href="mycss/Drop.css" rel="stylesheet"> -->
+     <link href="mycss/Drop1.css" rel="stylesheet">
     <!-- <link href="mycss/Candidates.css" rel="stylesheet"> -->
     <!-- <link href="mycss/simple-chart.css" rel="stylesheet"> -->
 

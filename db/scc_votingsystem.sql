@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2023 at 09:13 AM
+-- Generation Time: Mar 31, 2023 at 05:45 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -602,7 +602,24 @@ INSERT INTO `tbl_activitylogs` (`logs_id`, `username`, `action`, `login_time`) V
 (2453, 'admin', 'login', '2023-03-30 11:18:51'),
 (2454, 'admin', 'login', '2023-03-30 13:07:12'),
 (2455, 'admin', 'logout', '2023-03-30 13:10:08'),
-(2456, 'admin', 'login', '2023-03-30 13:12:30');
+(2456, 'admin', 'login', '2023-03-30 13:12:30'),
+(2457, 'admin', 'logout', '2023-03-30 15:24:42'),
+(2458, 'admin', 'login', '2023-03-30 15:24:46'),
+(2459, 'admin', 'logout', '2023-03-30 15:24:51'),
+(2460, 'admin', 'login', '2023-03-30 15:24:56'),
+(2461, 'admin', 'logout', '2023-03-30 15:25:00'),
+(2462, 'admin', 'login', '2023-03-30 15:25:26'),
+(2463, 'admin', 'login', '2023-03-30 15:45:26'),
+(2464, 'admin', 'logout', '2023-03-30 16:01:42'),
+(2465, 'admin', 'login', '2023-03-30 16:03:10'),
+(2466, 'admin', 'logout', '2023-03-30 16:29:58'),
+(2467, 'admin', 'login', '2023-03-30 16:30:06'),
+(2468, 'admin', 'login', '2023-03-31 09:04:18'),
+(2469, 'admin', 'login', '2023-03-31 09:55:27'),
+(2470, 'admin', 'logout', '2023-03-31 10:37:13'),
+(2471, 'admin', 'login', '2023-03-31 10:37:17'),
+(2472, 'admin', 'logout', '2023-03-31 11:42:11'),
+(2473, 'admin', 'login', '2023-03-31 11:42:49');
 
 -- --------------------------------------------------------
 
@@ -5207,7 +5224,7 @@ ALTER TABLE `school_profile`
 -- AUTO_INCREMENT for table `tbl_activitylogs`
 --
 ALTER TABLE `tbl_activitylogs`
-  MODIFY `logs_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2457;
+  MODIFY `logs_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2474;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
