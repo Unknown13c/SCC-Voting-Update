@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2023 at 05:45 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 14, 2023 at 09:54 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -619,7 +619,94 @@ INSERT INTO `tbl_activitylogs` (`logs_id`, `username`, `action`, `login_time`) V
 (2470, 'admin', 'logout', '2023-03-31 10:37:13'),
 (2471, 'admin', 'login', '2023-03-31 10:37:17'),
 (2472, 'admin', 'logout', '2023-03-31 11:42:11'),
-(2473, 'admin', 'login', '2023-03-31 11:42:49');
+(2473, 'admin', 'login', '2023-03-31 11:42:49'),
+(2474, 'admin', 'login', '2023-04-13 18:26:37'),
+(2475, 'admin', 'Voting Disable', '2023-04-13 18:27:04'),
+(2476, 'admin', 'Voting Enable', '2023-04-13 18:27:25'),
+(2477, 'admin', 'Voting Disable', '2023-04-13 20:12:08'),
+(2478, 'admin', 'Voting Enable', '2023-04-13 20:13:27'),
+(2479, 'admin', 'Voting Disable', '2023-04-13 20:17:12'),
+(2480, 'admin', 'Voting Enable', '2023-04-13 20:17:18'),
+(2481, 'admin', 'Voting Enable', '2023-04-13 20:17:36'),
+(2482, 'admin', 'Voting Disable', '2023-04-13 20:17:42'),
+(2483, 'admin', 'Voting Enable', '2023-04-13 20:17:46'),
+(2484, 'admin', 'Voting Disable', '2023-04-13 20:17:54'),
+(2485, 'admin', 'Voting Enable', '2023-04-13 20:19:57'),
+(2486, 'admin', 'Voting Disable', '2023-04-13 20:20:07'),
+(2487, 'admin', 'login', '2023-04-13 20:20:26'),
+(2488, 'admin', 'Voting Enable', '2023-04-13 20:22:18'),
+(2489, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2490, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2491, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2492, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2493, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2494, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2495, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2496, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2497, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2498, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2499, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2500, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2501, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2502, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2503, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2504, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2505, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2506, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2507, 'admin', 'Voting Enable', '2023-04-13 20:22:40'),
+(2508, 'admin', 'Voting Enable', '2023-04-13 20:22:41'),
+(2509, 'admin', 'Voting Enable', '2023-04-13 20:22:42'),
+(2510, 'admin', 'Voting Enable', '2023-04-13 20:22:42'),
+(2511, 'admin', 'Voting Enable', '2023-04-13 20:22:42'),
+(2512, 'admin', 'Voting Enable', '2023-04-13 20:22:42'),
+(2513, 'admin', 'Voting Enable', '2023-04-13 20:22:42'),
+(2514, 'admin', 'Voting Enable', '2023-04-13 20:22:42'),
+(2515, 'admin', 'Voting Enable', '2023-04-13 20:22:42'),
+(2516, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2517, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2518, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2519, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2520, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2521, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2522, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2523, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2524, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2525, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2526, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2527, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2528, 'admin', 'Voting Enable', '2023-04-13 20:22:43'),
+(2529, 'admin', 'Voting Enable', '2023-04-13 20:22:48'),
+(2530, 'admin', 'Voting Enable', '2023-04-13 20:22:48'),
+(2531, 'admin', 'Voting Enable', '2023-04-13 20:22:48'),
+(2532, 'admin', 'Voting Enable', '2023-04-13 20:22:48'),
+(2533, 'admin', 'Voting Enable', '2023-04-13 20:22:48'),
+(2534, 'admin', 'Voting Enable', '2023-04-13 20:22:48'),
+(2535, 'admin', 'Voting Enable', '2023-04-13 20:22:48'),
+(2536, 'admin', 'Voting Enable', '2023-04-13 20:22:48'),
+(2537, 'admin', 'Voting Enable', '2023-04-13 20:22:48'),
+(2538, 'admin', 'Voting Enable', '2023-04-13 20:22:49'),
+(2539, 'admin', 'Voting Enable', '2023-04-13 20:22:49'),
+(2540, 'admin', 'Voting Enable', '2023-04-13 20:22:49'),
+(2541, 'admin', 'Voting Enable', '2023-04-13 20:22:49'),
+(2542, 'admin', 'Voting Enable', '2023-04-13 20:22:49'),
+(2543, 'admin', 'Voting Enable', '2023-04-13 20:22:49'),
+(2544, 'admin', 'Voting Enable', '2023-04-13 20:22:49'),
+(2545, 'admin', 'Voting Enable', '2023-04-13 20:22:49'),
+(2546, 'admin', 'Voting Enable', '2023-04-13 20:22:49'),
+(2547, 'admin', 'Voting Enable', '2023-04-13 20:22:49'),
+(2548, 'admin', 'Voting Enable', '2023-04-13 20:22:49'),
+(2549, 'admin', 'Voting Enable', '2023-04-13 20:23:00'),
+(2550, 'admin', 'logout', '2023-04-13 20:25:18'),
+(2551, 'admin', 'login', '2023-04-13 20:32:19'),
+(2552, 'admin', 'Voting Disable', '2023-04-13 20:32:29'),
+(2553, 'admin', 'logout', '2023-04-13 20:32:38'),
+(2554, 'admin', 'login', '2023-04-13 20:34:45'),
+(2555, 'admin', 'Voting Enable', '2023-04-13 20:34:48'),
+(2556, 'admin', 'logout', '2023-04-13 20:34:51'),
+(2557, 'admin', 'login', '2023-04-13 20:35:14'),
+(2558, 'admin', 'login', '2023-04-13 22:13:43'),
+(2559, 'admin', 'logout', '2023-04-13 22:49:04'),
+(2560, 'admin', 'login', '2023-04-13 22:50:33');
 
 -- --------------------------------------------------------
 
@@ -752,6 +839,24 @@ INSERT INTO `tbl_partylist` (`partylist_id`, `party`, `year`, `date`) VALUES
 (1018, 'Dasig Partylist', '2022-2023', '2022-09-20'),
 (1019, 'METS Partylist', '2022-2023', '2022-09-20'),
 (1020, 'LITE Partylist', '2022-2023', '2022-09-20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_sy`
+--
+
+CREATE TABLE `tbl_sy` (
+  `sy_id` int(30) NOT NULL,
+  `sy_desc` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_sy`
+--
+
+INSERT INTO `tbl_sy` (`sy_id`, `sy_desc`) VALUES
+(1, '2022-2023');
 
 -- --------------------------------------------------------
 
@@ -5199,6 +5304,12 @@ ALTER TABLE `tbl_partylist`
   ADD PRIMARY KEY (`partylist_id`);
 
 --
+-- Indexes for table `tbl_sy`
+--
+ALTER TABLE `tbl_sy`
+  ADD PRIMARY KEY (`sy_id`);
+
+--
 -- Indexes for table `voters`
 --
 ALTER TABLE `voters`
@@ -5224,7 +5335,7 @@ ALTER TABLE `school_profile`
 -- AUTO_INCREMENT for table `tbl_activitylogs`
 --
 ALTER TABLE `tbl_activitylogs`
-  MODIFY `logs_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2474;
+  MODIFY `logs_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2561;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
@@ -5249,6 +5360,12 @@ ALTER TABLE `tbl_messages`
 --
 ALTER TABLE `tbl_partylist`
   MODIFY `partylist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1023;
+
+--
+-- AUTO_INCREMENT for table `tbl_sy`
+--
+ALTER TABLE `tbl_sy`
+  MODIFY `sy_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `voters`
