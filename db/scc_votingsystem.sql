@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Apr 15, 2023 at 06:34 AM
+=======
+-- Generation Time: Apr 14, 2023 at 09:54 AM
+>>>>>>> 75aa55229c10ebe046c3ccd654135d3a03fbd715
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -706,6 +710,7 @@ INSERT INTO `tbl_activitylogs` (`logs_id`, `username`, `action`, `login_time`) V
 (2557, 'admin', 'login', '2023-04-13 20:35:14'),
 (2558, 'admin', 'login', '2023-04-13 22:13:43'),
 (2559, 'admin', 'logout', '2023-04-13 22:49:04'),
+<<<<<<< HEAD
 (2560, 'admin', 'login', '2023-04-13 22:50:33'),
 (2561, 'admin', 'login', '2023-04-14 01:08:22'),
 (2562, 'admin', 'Voting Disable', '2023-04-14 01:09:28'),
@@ -725,6 +730,9 @@ INSERT INTO `tbl_activitylogs` (`logs_id`, `username`, `action`, `login_time`) V
 (2576, 'admin', 'Voting Enable', '2023-04-14 20:00:39'),
 (2577, 'admin', 'login', '2023-04-14 20:04:03'),
 (2578, 'admin', 'logout', '2023-04-14 20:06:52');
+=======
+(2560, 'admin', 'login', '2023-04-13 22:50:33');
+>>>>>>> 75aa55229c10ebe046c3ccd654135d3a03fbd715
 
 -- --------------------------------------------------------
 
@@ -5354,7 +5362,11 @@ ALTER TABLE `school_profile`
 -- AUTO_INCREMENT for table `tbl_activitylogs`
 --
 ALTER TABLE `tbl_activitylogs`
+<<<<<<< HEAD
   MODIFY `logs_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2579;
+=======
+  MODIFY `logs_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2561;
+>>>>>>> 75aa55229c10ebe046c3ccd654135d3a03fbd715
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
