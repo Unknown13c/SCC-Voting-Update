@@ -13,7 +13,7 @@ if (isset($_GET['voters_id'])){
 	$voter = "UPDATE voters SET a_status = 'Deactivated'";
 	$results = $conn->query($voter);
 	$conn->query("INSERT INTO tbl_activitylogs(username, action) values ('$_SESSION[username]','Voting Disable')")or die($conn->error);
-	header('location: dashboard.php?error=votingDisable');
+	header('location: new_dashboard.php?error=votingDisable');
 	exit();
 
 

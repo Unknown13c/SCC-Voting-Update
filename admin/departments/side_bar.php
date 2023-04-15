@@ -39,7 +39,7 @@
                         </div>
                     <ul class="nav" id="side-menu">
                         <li><a href="../new_dashboard.php?page=Dashboard"><i class="fa fa-home fa-home"></i>Home</a></li>			
-                        <li><a href="../new_canvassing.php?page=canvassingReports"><i class="fa fa-download fa-fw"></i>Election Reports</a></li>
+                        <li><a href="../new_canvassing.php?page=canvassingReports"><i class="fa fa-download fa-fw"></i>Election-Reports</a></li>
                         <li><a href="../user.php?page=usersAccount"><i class="fa fa-user fa-fw"></i>Account</a></li>
                         <li><a href="../archives_candidate.php?page=archives"><i class="fa fa-user fa-archive"></i>Archives</a></li>
                         <li><a href="login_times.php?page=logs"><i class="fa fa-history fa-fw"></i>Activity logs</a></li>
@@ -51,7 +51,6 @@
                      </nav>
                 </div>
             </div>
-
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">

@@ -182,7 +182,7 @@
                         $votingclose = $close['a_status'];
                     }
                 ?>
-            <h4 style="margin: 1em;">Voting is now <?php echo $votingclose; ?></h4>
+            <h4 style="margin: 1em;">Voting is now <b style="color:red;"><?php echo $votingclose; ?></b></h4>
           </div> 
  &nbsp;
 

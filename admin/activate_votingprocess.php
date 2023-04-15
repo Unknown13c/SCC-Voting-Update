@@ -7,7 +7,7 @@ include ('session.php');
 
 	$conn->query("INSERT INTO tbl_activitylogs(username, action) values ('$session_username','Voting Enable')")or die($conn->error);
 
-	header('location: dashboard.php?error=votingEnable');
+	header('location:new_dashboard.php?error=votingEnable');
 	exit();
 
 
